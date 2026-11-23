@@ -1,0 +1,8 @@
+/[Tt]emp/
+.claude/settings.local.json
+.env
+*.bak-everkeep
+__pycache__/
+
+# Nota pembangunan peribadi (tidak diterbitkan)
+_dev/

@@ -1,0 +1,14 @@
+{
+  "name": "everkeep",
+  "description": "Everkeep: persistent long-term memory for your AI companion, across coding agents",
+  "owner": {
+    "name": "{{USER_NAME}}"
+  },
+  "plugins": [
+    {
+      "name": "everkeep-skills",
+      "source": "./plugins/everkeep-skills",
+      "description": "Auto-trigger wrappers for Everkeep memory skills"
+    }
+  ]
+}

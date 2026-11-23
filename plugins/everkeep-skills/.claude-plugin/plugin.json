@@ -1,0 +1,9 @@
+{
+  "name": "everkeep-skills",
+  "version": "0.1.0",
+  "description": "Auto-trigger wrappers for Everkeep memory skills ({{AI_NAME}})",
+  "license": "MIT",
+  "author": {
+    "name": "{{USER_NAME}}"
+  }
+}
