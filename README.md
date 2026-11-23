@@ -1,11 +1,13 @@
 # 🔒 Everkeep
 
-**Memori jangka panjang untuk AI teman anda, di mana-mana coding agent.**
+**English** · [Bahasa Melayu](README.ms.md)
 
-> *Ever* + *keep*: disimpan selamanya. **One memory, every coding agent.**
-> Pengalaman harian (`session`) direkod dalam `diary`, dan yang penting disimpan kekal dalam `core`.
+**Long-term memory for your AI companion, in any coding agent.**
 
-AI coding agent lupa segalanya bila sesi tamat. Setiap agent juga ada memori sendiri yang tidak dikongsi. Everkeep memberi anda **satu otak** dalam bentuk folder fail markdown biasa. Mana-mana agent boleh memanggil otak itu dengan satu perkataan, iaitu nama AI teman anda.
+> *Ever* + *keep*: kept forever. **One memory, every coding agent.**
+> Daily work lives in `session`, the story goes into `diary`, and what matters is kept in `core`.
+
+Coding agents forget everything when a session ends, and each agent keeps its own memory that the others can't see. Everkeep gives you **one brain**: a folder of plain markdown files. Any agent can wake it up with a single word, the name you give your AI companion.
 
 ```
 Claude Code ─┐
@@ -15,58 +17,104 @@ Cline / Roo ─┤
 Aider / ... ─┘
 ```
 
-## Kenapa Everkeep
+```
+> hi Mira
+Hi Ali, Mira here. Last time (yesterday, in OpenCode) we were on kedai-kek:
+the order form is done, the WhatsApp button is next. Carry on?
+```
 
-- **Satu otak, banyak agent.** Mula kerja di Claude Code, sambung di OpenCode, dan AI anda tetap ingat.
-- **Tanpa server, tanpa database.** Hanya fail `.md` yang boleh anda baca dan edit sendiri.
-- **Tidak bergantung pada model.** Ia berfungsi dengan Claude, Gemini, GPT atau mana-mana model melalui kunci API anda sendiri.
-- **Nama anda pilih sendiri.** Everkeep ialah enjinnya, manakala identiti teman AI anda tentukan sendiri.
-- **Setup tanpa coding.** Agent anda sendiri yang memandu setup melalui soal jawab.
+## Why Everkeep
 
-## Mula dalam 3 langkah
+- **One brain, many agents.** Start in Claude Code, continue in OpenCode, and your AI still remembers.
+- **No server, no database.** Just `.md` files you can read and edit yourself.
+- **Model-agnostic.** Works with Claude, Gemini, GPT or any model through your own API key, as long as the agent can read and write files.
+- **Your companion, your name.** Everkeep is the engine; you choose who your AI is.
+- **No-code setup.** Your own agent runs the setup as a short Q&A.
 
-1. Clone atau salin folder ini ke tempat tetap, contohnya `C:\Everkeep` atau `~/everkeep`. **Gunakan satu salinan sahaja.**
-2. Buka folder itu dalam coding agent anda dan taip: **`setup`**
-3. Jawab beberapa soalan. Selepas itu, buka sesi baru di mana-mana agent dan taip nama AI anda.
+## Get started in 3 steps
 
-> ⚠️ **Memori anda peribadi.** Kalau anda `git clone` templat ini, jangan push memori ke repo awam. Setup akan membantu anda tukar ke repo **private** sendiri.
+1. Clone or copy this folder to a permanent place, e.g. `C:\Everkeep` or `~/everkeep`. **Keep one copy only.**
+   ```
+   git clone https://github.com/khairulariffinhamzah/everkeep ~/everkeep
+   ```
+2. Open that folder in your coding agent and type: **`setup`**
+3. Answer a few questions. Then open a new session in any connected agent, from any folder, and type your AI's name.
 
-## Arahan harian
+> ⚠️ **Your memory is private.** If you cloned this template, never push your memory to a public repo. Setup helps you switch to your own **private** repo.
 
-| Taip | Hasil |
+## Daily commands
+
+| Type | What happens |
 |---|---|
-| `<nama AI>` / `hi <nama AI>` | AI muat memori dan sambung dari tempat anda berhenti |
-| `save` | Simpan progres sesi dan projek |
-| `save diary` | Tulis entri diari hari ini |
-| `remember ...` | Simpan satu fakta kekal |
-| `do you remember ...` | Cari dalam diari dan projek lama |
-| `log decision` | Log keputusan dan sebabnya dalam fail projek |
-| `compact memory` | Padatkan memori yang terlalu panjang |
-| `new skill` | Cipta kemahiran sendiri |
-| `commit memory` / `push memory` | Simpan sejarah memori dalam git |
-| `init project` | Sediakan `AGENTS.md` + `CLAUDE.md` dalam projek, supaya semua agent baca peraturan yang sama |
+| `<AI name>` / `hi <AI name>` | Loads memory and picks up where you left off |
+| `save` | Saves session and project progress |
+| `save diary` | Writes today's diary entry |
+| `remember ...` | Stores one lasting fact |
+| `do you remember ...` | Searches past diary and project notes |
+| `log decision` | Records a decision and why, in the project file |
+| `compact memory` | Trims memory that has grown too long |
+| `new skill` | Creates your own skill |
+| `commit memory` / `push memory` | Keeps memory history in git |
+| `init project` | Sets up `AGENTS.md` + `CLAUDE.md` in a project so every agent reads the same rules |
 
-Arahan dalam bahasa lain pun difahami (cth. `simpan`, `tolong ingat`), tapi frasa English di atas ialah standard.
+Commands in other languages are understood too (e.g. Malay `simpan`, `tolong ingat`), but the English phrases above are the standard.
 
-## Struktur
+Your AI also offers to `save` when you say goodbye, switch projects or finish a big task, so work isn't lost.
+
+## How it works
+
+1. **Setup** adds a short connector block to each agent's global instruction file (for Claude Code, `~/.claude/CLAUDE.md`). It says: *when the user types "Mira", read `EVERKEEP.md` in this folder.*
+2. **Waking up** reads `core/identity.md` (who the AI is), `core/user.md` (who you are), `core/session.md` (where you stopped) and, if the current folder matches, `projects/<folder>.md`.
+3. **Skills** in `skills/` are plain markdown steps, so any agent can follow them without a plugin system. Claude Code can optionally install auto-trigger wrappers (`plugins/everkeep-skills`).
+4. **Shared-brain rules** keep several agents from overwriting each other: read before write, append-only diary tagged with the agent's name, core files changed only on request, no secrets, absolute dates.
+
+### Project rules vs. personal memory
+
+| Kind of information | Where it lives |
+|---|---|
+| Project rules everyone and every AI should follow (stack, build/test commands, code style) | `AGENTS.md` **inside the project** (shared, committed) |
+| Progress, decisions and why, open tasks, pitfalls | `projects/<folder>.md` in Everkeep (private) |
+| Facts about you | `core/user.md` |
+
+Each fact lives in one place. `init project` creates `AGENTS.md` plus a `CLAUDE.md` that only contains `@AGENTS.md`, so Claude Code reads the same rules as other agents.
+
+## Supported agents
+
+| Agent | Status |
+|---|---|
+| Claude Code (CLI, IDE, Desktop **Code** tab) | ✅ tested |
+| OpenCode | ✅ works (connector path to be re-checked) |
+| Antigravity, Gemini CLI, Codex CLI, Cline, Roo Code, Kilo Code, Aider | ⏳ connector locations listed, not yet tested |
+| Claude Desktop **Cowork** / **Chat** | ⚠️ limited, see `connectors/README.md` |
+| Anything else | paste the connector block into its custom instructions |
+
+Small or cheap models may skip steps. If that happens, say: *"Mira, read EVERKEEP.md"*.
+
+## More than one computer
+
+Keep your memory in a **private** git repo. On the new computer, clone it and type `setup`: the agent sees setup is already done and only connects itself. Pull before you start, push after you `save`. Memory files contain no absolute paths, so the folder can live anywhere on each machine. Details: `SETUP.md` → *Komputer tambahan* and `skills/git.md` → *Banyak peranti*.
+
+## Structure
 
 ```
-EVERKEEP.md             pintu masuk: bangun, kata kunci, peraturan otak berkongsi
-AGENTS.md / CLAUDE.md   arahan bila agent dibuka dalam folder memori ini
-SETUP.md                wizard persediaan (dijalankan oleh agent)
-LICENSE                 MIT
+EVERKEEP.md              entry point: wake-up, commands, shared-brain rules
+AGENTS.md / CLAUDE.md    instructions when an agent opens this memory folder
+SETUP.md                 setup wizard (run by the agent)
+LICENSE                  MIT
 core/
-  identity.md           siapa AI ini
-  user.md               siapa anda dan cara anda bekerja
-  session.md            memori kerja: di mana kita berhenti
-projects/               satu fail untuk setiap projek (dipadankan dengan nama folder)
-diary/                  diari harian, hanya boleh ditambah (archive/ untuk bulan lepas)
-skills/                 kemahiran dalam markdown biasa, boleh diikut oleh semua agent
-plugins/everkeep-skills/ pembalut auto-cetus untuk Claude Code (pilihan)
-connectors/             blok sambungan + lokasi fail arahan untuk setiap agent
-extras/statusline/      status line Claude Code: nama AI, bila save, saiz sesi (pilihan)
+  identity.md            who the AI is
+  user.md                who you are and how you work
+  session.md             working memory: where you stopped (one active project)
+projects/                one file per project, matched by folder name
+diary/                   daily diary, append-only (archive/ for past months)
+skills/                  plain-markdown skills any agent can follow
+plugins/everkeep-skills/ auto-trigger wrappers for Claude Code (optional)
+connectors/              connector block + instruction-file locations per agent
+extras/statusline/       Claude Code status line: AI name, last save, session size (optional)
 ```
 
-## Lesen
+> **Note:** the protocol and skill files are currently written in Malay (agents read them fine in any language). An English version of the internal files is planned.
 
-MIT. Lihat `LICENSE`.
+## License
+
+MIT. See `LICENSE`.
