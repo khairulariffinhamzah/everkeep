@@ -12,7 +12,7 @@ Setiap agent ada fail arahan global sendiri. Tambah blok dalam `CONNECTOR.md` di
 | Claude Desktop / claude.ai: tab **Chat** | arahan Project atau tetapan peribadi + connector sistem fail | ⚠️ terhad, lihat di bawah |
 | OpenCode | `~/.config/opencode/AGENTS.md` | ✅ terbukti, laluan perlu disemak |
 | Antigravity | `~/.gemini/GEMINI.md` (Global Rules) | ⏳ perlu diuji |
-| Gemini CLI | `~/.gemini/GEMINI.md`, fail sama dengan Antigravity | ⏳ perlu diuji |
+| Gemini CLI | `~/.gemini/GEMINI.md`, fail sama dengan Antigravity | ⚠️ akaun individu percuma ditolak Google ("IneligibleTierError", Nov 2026): guna Antigravity |
 | Codex CLI | `~/.codex/AGENTS.md` | ⏳ perlu diuji |
 | Cline | folder Global Rules (dalam tetapan Cline) | ⏳ perlu diuji |
 | Roo Code / Kilo Code | `~/.roo/rules/` / `~/.kilocode/rules/` | ⏳ perlu diuji |
