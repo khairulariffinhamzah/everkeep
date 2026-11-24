@@ -36,7 +36,7 @@ Also fill in the `<...>` parts of `core/identity.md` (language, voice) and `core
 
 ### Step 3: Record the setup
 
-Create `diary/YYYY-MM-DD.md` with the first entry. Date and time come from the system; `[agent-name]` is the agent running the setup (e.g. `[claude-code]`, `[opencode]`), not the companion's name:
+Create `diary/YYYY-MM-DD.md` with the first entry. Date and time come from the system; `[agent-name]` is the agent running the setup (e.g. `[claude-code]`, `[opencode]`), not the companion's name. Write the entry text in the conversation language (answer 4); the template below is in English only as an example:
 
 ```markdown
 # Diary YYYY-MM-DD
