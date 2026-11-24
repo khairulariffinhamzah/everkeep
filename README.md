@@ -83,8 +83,9 @@ Each fact lives in one place. `init project` creates `AGENTS.md` plus a `CLAUDE.
 | Agent | Status |
 |---|---|
 | Claude Code (CLI, IDE, Desktop **Code** tab) | ✅ tested |
-| OpenCode | ✅ works (connector path to be re-checked) |
-| Antigravity, Gemini CLI, Codex CLI, Cline, Roo Code, Kilo Code, Aider | ⏳ connector locations listed, not yet tested |
+| OpenCode | ✅ tested (setup + wake-up) |
+| Antigravity | ✅ tested (wake-up) |
+| Gemini CLI, Codex CLI, Cline, Roo Code, Kilo Code, Aider | ⏳ connector locations listed, not yet tested |
 | Claude Desktop **Cowork** / **Chat** | ⚠️ limited, see `connectors/README.md` |
 | Anything else | paste the connector block into its custom instructions |
 

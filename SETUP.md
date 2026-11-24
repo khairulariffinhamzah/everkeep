@@ -25,8 +25,10 @@ Gantikan placeholder dalam **semua** fail `.md` dan `.json`, kecuali folder `_de
 | `{{AI_NAME}}` | jawapan 1 |
 | `{{USER_NAME}}` | jawapan 2 |
 | `{{RELATIONSHIP_STYLE}}` | jawapan 3 |
-| `{{SETUP_DATE}}` | tarikh hari ini, `YYYY-MM-DD` |
+| `{{SETUP_DATE}}` | tarikh hari ini, `YYYY-MM-DD`, **daripada sistem** (lihat nota di bawah) |
 | `{{MEMORY_ROOT}}` | laluan penuh folder ini **di komputer ini**, dengan `/` (cth. `C:/Everkeep` atau `/home/ali/everkeep`). Hanya dalam blok penyambung |
+
+**Tarikh dan masa:** dapatkan daripada sistem (cth. `date` atau PowerShell `Get-Date`) dalam zon masa pengguna. Jangan meneka daripada ingatan model, kerana model selalu tersilap hari.
 
 Selepas itu, semak dengan carian `{{` untuk memastikan tiada placeholder yang tertinggal (kecuali `{{MEMORY_ROOT}}` dalam `connectors/CONNECTOR.md`, serta `SETUP.md` dan `_dev/`).
 
@@ -34,7 +36,7 @@ Isi juga bahagian `<...>` dalam `core/identity.md` (bahasa, suara) dan `core/use
 
 ### Langkah 3: Rekod setup
 
-Cipta `diary/YYYY-MM-DD.md` dengan entri pertama:
+Cipta `diary/YYYY-MM-DD.md` dengan entri pertama. Tarikh dan masa daripada sistem; `[nama-agent]` ialah nama agent yang menjalankan setup (cth. `[claude-code]`, `[opencode]`), bukan nama AI teman:
 
 ```markdown
 # Diari YYYY-MM-DD

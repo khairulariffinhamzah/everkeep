@@ -65,7 +65,7 @@ Beberapa agent mungkin menggunakan memori yang sama, malah pada masa yang sama.
 2. **Diari hanya boleh ditambah.** Jangan sunting atau padam entri lama. Setiap entri baru ditanda dengan masa dan agent, contohnya `### 14:05 [opencode]`.
 3. **`core/` diubah hanya atas arahan pengguna** (`save`, `remember`, `compact memory`).
 4. **Tiada rahsia.** Jangan simpan kunci API, kata laluan, token atau data kad.
-5. **Tarikh mutlak.** Tulis `2026-11-20`, bukan "semalam".
+5. **Tarikh mutlak, daripada sistem.** Tulis `2026-11-20`, bukan "semalam". Dapatkan tarikh dan masa daripada sistem (`date` / `Get-Date`), jangan meneka.
 6. **Git:** kalau akar memori ialah repo git, ikut `skills/git.md` selepas setiap simpan.
 7. **Asingkan peraturan projek daripada memori peribadi:**
 
