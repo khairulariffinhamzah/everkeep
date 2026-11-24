@@ -1,53 +1,53 @@
-# Kemahiran: init project
+# Skill: init project
 
-**Dicetus oleh:** `init project`, `setup project`; atau tawarkan bila folder kerja ialah projek tanpa `AGENTS.md`
-**Menulis:** `AGENTS.md` + `CLAUDE.md` dalam **folder projek**, `projects/<nama-folder>.md` dalam Everkeep
+**Triggered by:** `init project`, `setup project`; or offer it when the working folder is a project without `AGENTS.md`
+**Writes:** `AGENTS.md` + `CLAUDE.md` in the **project folder**, `projects/<folder-name>.md` in Everkeep
 
-Tujuan: setiap projek ada **satu** fail peraturan (`AGENTS.md`) yang dibaca oleh semua agent. `CLAUDE.md` hanya mengandungi `@AGENTS.md` supaya Claude Code membaca fail yang sama.
+Goal: every project has **one** rules file (`AGENTS.md`) that every agent reads. `CLAUDE.md` contains only `@AGENTS.md` so Claude Code reads the same file.
 
-> Kenapa `CLAUDE.md` masih perlu: Claude Code membaca `CLAUDE.md` dahulu dan hanya guna `AGENTS.md` sebagai sandaran bila tiada `CLAUDE.md`. Kalau `CLAUDE.md` wujud tanpa `@AGENTS.md`, `AGENTS.md` **diabaikan**. Butiran: `connectors/README.md` → "Claude: fail mana yang dibaca".
+> Why `CLAUDE.md` is still needed: Claude Code reads `CLAUDE.md` first and only falls back to `AGENTS.md` when there is no `CLAUDE.md`. If `CLAUDE.md` exists without `@AGENTS.md`, `AGENTS.md` is **ignored**. Details: `connectors/README.md` → "Claude: which files are read".
 
-## Langkah
-1. **Pastikan ini folder projek.** Jangan jalankan dalam folder home, akar Everkeep, atau folder sistem. Kalau ragu, tanya pengguna.
-2. **Semak fail sedia ada** dalam folder projek: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, `.clinerules`.
-3. **Ikut keadaan:**
+## Steps
+1. **Make sure this is a project folder.** Never run it in the home folder, the Everkeep root, or a system folder. If unsure, ask the user.
+2. **Check the existing files** in the project folder: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, `.clinerules`.
+3. **Act on what you find:**
 
-   | Keadaan | Tindakan |
+   | Situation | Action |
    |---|---|
-   | Tiada `AGENTS.md`, tiada `CLAUDE.md` | Draf `AGENTS.md` (langkah 4), kemudian cipta `CLAUDE.md` berisi `@AGENTS.md` |
-   | Ada `CLAUDE.md`, tiada `AGENTS.md` | Tawarkan: pindah isi `CLAUDE.md` ke `AGENTS.md`, kemudian `CLAUDE.md` jadi `@AGENTS.md`. Kalau pengguna tak setuju, biarkan |
-   | Ada `AGENTS.md`, tiada `CLAUDE.md` | Cipta `CLAUDE.md` berisi `@AGENTS.md` |
-   | Ada kedua-duanya | Semak `CLAUDE.md` merujuk `@AGENTS.md`. Kalau tidak, tunjuk perbezaan dan tanya pengguna. Jangan gabung tanpa izin |
-   | Ada `.cursorrules` / `.clinerules` / `GEMINI.md` | Guna isinya sebagai bahan draf. Jangan padam fail itu |
+   | No `AGENTS.md`, no `CLAUDE.md` | Draft `AGENTS.md` (step 4), then create `CLAUDE.md` containing `@AGENTS.md` |
+   | `CLAUDE.md` but no `AGENTS.md` | Offer to move the contents of `CLAUDE.md` to `AGENTS.md`, then make `CLAUDE.md` just `@AGENTS.md`. If the user says no, leave it |
+   | `AGENTS.md` but no `CLAUDE.md` | Create `CLAUDE.md` containing `@AGENTS.md` |
+   | Both exist | Check that `CLAUDE.md` references `@AGENTS.md`. If not, show the difference and ask the user. Never merge without permission |
+   | `.cursorrules` / `.clinerules` / `GEMINI.md` exist | Use their contents as draft material. Don't delete those files |
 
-4. **Draf `AGENTS.md`** dengan membaca projek (README, `package.json` / `composer.json` / `pyproject.toml`, struktur folder). Pendek, fakta sahaja:
+4. **Draft `AGENTS.md`** by reading the project (README, `package.json` / `composer.json` / `pyproject.toml`, folder layout). Short, facts only:
 
    ```markdown
-   # <Nama projek>
+   # <Project name>
 
-   <Satu ayat: apa projek ini>
+   <One sentence: what this project is>
 
    ## Stack
-   - <bahasa, framework, hosting>
+   - <language, framework, hosting>
 
-   ## Arahan
+   ## Commands
    - Install: `<...>`
    - Dev: `<...>`
    - Build / test: `<...>`
 
-   ## Struktur
-   - `<folder>/`: <fungsi>
+   ## Layout
+   - `<folder>/`: <purpose>
 
-   ## Peraturan
-   - <gaya kod, perkara yang dilarang, akaun/deploy yang betul>
+   ## Rules
+   - <code style, things that are not allowed, the right account/deploy target>
    ```
 
-   Hanya tulis perkara yang disahkan daripada fail projek atau pengguna. Kalau tak pasti, tinggalkan `<...>` dan tanya.
-5. **Tunjuk draf kepada pengguna** dan tunggu persetujuan sebelum menulis. Fail ini akan dikongsi dengan sesiapa yang membuka projek.
-6. **Pilihan:** kalau pengguna guna Gemini CLI, tawarkan `GEMINI.md` berisi `@AGENTS.md`.
-7. **Memori Everkeep:** kalau `projects/<nama-folder>.md` belum wujud, cipta daripada `projects/_template.md`. Isi **Folder, Peraturan projek (laluan `AGENTS.md`) dan Status sahaja**. Jangan salin apa-apa dari `AGENTS.md` (apa projek, stack, arahan, peraturan) dan jangan catat "AGENTS.md dicipta" sebagai keputusan.
-8. Laporkan fail yang dicipta. **Jangan commit repo projek** melainkan pengguna minta. Repo Everkeep boleh di-commit melalui `git.md`.
+   Only write things confirmed by the project files or the user. If unsure, leave `<...>` and ask.
+5. **Show the draft to the user** and wait for approval before writing. This file is shared with anyone who opens the project.
+6. **Optional:** if the user uses Gemini CLI, offer a `GEMINI.md` containing `@AGENTS.md`.
+7. **Everkeep memory:** if `projects/<folder-name>.md` doesn't exist yet, create it from `projects/_template.md`. Fill in **only Folder, Project rules (the `AGENTS.md` path) and Status**. Don't copy anything from `AGENTS.md` (what the project is, stack, commands, rules) and don't record "created AGENTS.md" as a decision.
+8. Report the files created. **Don't commit the project repo** unless the user asks. The Everkeep repo can be committed through `git.md`.
 
-## Jangan
-- Jangan masukkan maklumat peribadi, memori Everkeep, rahsia atau kunci API ke dalam `AGENTS.md` projek.
-- Jangan tulis ganti `AGENTS.md` atau `CLAUDE.md` sedia ada tanpa izin.
+## Don't
+- Don't put personal information, Everkeep memory, secrets or API keys in the project's `AGENTS.md`.
+- Don't overwrite an existing `AGENTS.md` or `CLAUDE.md` without permission.

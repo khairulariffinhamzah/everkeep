@@ -1,23 +1,23 @@
-# Kemahiran: git
+# Skill: git
 
-**Dicetus oleh:** selesai `save`, `save diary`, `compact memory`, `log decision`; atau pengguna taip `commit memory` / `push memory`
-**Skop:** **repo akar memori sahaja** (folder yang mengandungi `EVERKEEP.md`), tidak pernah repo projek lain
+**Triggered by:** finishing `save`, `save diary`, `compact memory`, `log decision`; or the user types `commit memory` / `push memory`
+**Scope:** **the memory root repo only** (the folder that contains `EVERKEEP.md`), never any other project's repo
 
-## Langkah
-1. Pastikan akar memori ialah repo git. Kalau bukan, berhenti tanpa sebarang mesej.
-2. Jalankan semua arahan dengan `git -C <akar memori> ...`, walau di mana pun folder kerja semasa.
-3. Semak `status`. Kalau ada konflik atau keadaan pelik, beritahu pengguna dan jangan commit.
-4. `add` fail yang ditukar mengikut nama. Jangan guna `add -A` membuta tuli.
-5. Commit dengan mesej `memori: <ringkasan pendek> [nama-agent]`.
-6. **Push hanya kalau pengguna minta** (`push memory`) atau sudah memberi izin tetap.
-7. **Kalau push gagal** (cth. "Repository not found", 403, salah akaun): jangan cuba berulang kali. Laporkan ralat, semak akaun dalam `core/user.md` → "Akaun & alat", dan cadangkan tetapkan akaun pada remote (cth. `https://<akaun>@github.com/<akaun>/<repo>.git`). Commit tempatan kekal selamat.
+## Steps
+1. Check that the memory root is a git repo. If it isn't, stop without any message.
+2. Run every command as `git -C <memory root> ...`, whatever the current working directory is.
+3. Check `status`. If there is a conflict or anything odd, tell the user and don't commit.
+4. `add` the changed files by name. Never run `add -A` blindly.
+5. Commit with the message `memory: <short summary> [agent-name]`.
+6. **Push only if the user asks** (`push memory`) or has given standing permission.
+7. **If the push fails** (e.g. "Repository not found", 403, wrong account): don't retry over and over. Report the error, check the account in `core/user.md` → "Accounts & tools", and suggest pinning the account on the remote (e.g. `https://<account>@github.com/<account>/<repo>.git`). The local commit stays safe.
 
-## Banyak peranti
-- **Pilihan A, satu memori merentas peranti:** satu repo private. Sebelum bangun, `git pull --rebase`; selepas simpan, commit + push. Jangan guna dua peranti serentak tanpa pull dahulu.
-- **Pilihan B, memori berasingan setiap peranti:** setiap peranti ada repo sendiri. **Jangan pull/merge dari repo peranti lain**, kerana memori akan bercampur. Kongsi `skills/` sahaja, satu fail pada satu masa.
-- Tanya pengguna pilihan mana semasa setup git, dan catat dalam `core/user.md` → "Akaun & alat".
+## Multiple devices
+- **Option A, one memory across devices:** one private repo. Before waking up, `git pull --rebase`; after saving, commit + push. Don't use two devices at the same time without pulling first.
+- **Option B, a separate memory per device:** each device has its own repo. **Never pull/merge from another device's repo**, or the memories get mixed. Share `skills/` only, one file at a time.
+- Ask the user which option during git setup, and record it in `core/user.md` → "Accounts & tools".
 
-## Jangan
-- Jangan commit fail `.env` atau fail yang mengandungi rahsia.
-- Jangan guna `--force`, `reset --hard` atau tulis semula sejarah tanpa izin jelas pengguna.
-- Jangan push ke repo awam. Memori ini peribadi.
+## Don't
+- Don't commit `.env` files or files that contain secrets.
+- Don't use `--force`, `reset --hard` or rewrite history without the user's clear permission.
+- Don't push to a public repo. This memory is private.

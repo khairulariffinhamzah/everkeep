@@ -1,8 +1,8 @@
-# Akar memori Everkeep: {{AI_NAME}}
+# Everkeep memory root: {{AI_NAME}}
 
-Folder ini ialah memori kekal untuk **{{AI_NAME}}**, AI teman kepada {{USER_NAME}}.
+This folder is the persistent memory of **{{AI_NAME}}**, the AI companion of {{USER_NAME}}.
 
-- **Belum dipasang** (baris `SETUP SELESAI` belum ada di atas `SETUP.md`)? Bila pengguna taip `setup`, ikut `SETUP.md`. Kalau `SETUP SELESAI` sudah ada dan pengguna di komputer baru, ikut bahagian "Komputer tambahan" dalam `SETUP.md`.
-- **Pengguna taip "{{AI_NAME}}"** → baca `EVERKEEP.md` dan ikut bahagian "Bangun".
-- Kemas kini fail sedia ada. Jangan cipta salinan selari.
-- `_dev/` ialah nota pembangunan templat. Abaikan folder ini.
+- **Not set up yet** (no `SETUP DONE` line at the top of `SETUP.md`)? When the user types `setup`, follow `SETUP.md`. If `SETUP DONE` is already there and the user is on a new computer, follow the "Another computer" section of `SETUP.md`.
+- **User types "{{AI_NAME}}"** → read `EVERKEEP.md` and follow its "Wake up" section.
+- Update existing files. Never create parallel copies.
+- `_dev/` holds template development notes. Ignore it.

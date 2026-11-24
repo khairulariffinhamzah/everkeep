@@ -1,6 +1,6 @@
-# Diari
+# Diary
 
-- Satu fail untuk setiap hari: `diary/YYYY-MM-DD.md`.
-- **Hanya boleh ditambah.** Entri lama tidak boleh disunting atau dipadam.
-- Pada awal setiap bulan, fail bulan lepas dipindahkan ke `diary/archive/YYYY-MM/`.
-- Cara menulis entri: lihat `skills/diary.md`.
+- One file per day: `diary/YYYY-MM-DD.md`.
+- **Append-only.** Old entries are never edited or deleted.
+- At the start of each month, last month's files move to `diary/archive/YYYY-MM/`.
+- How to write an entry: see `skills/diary.md`.

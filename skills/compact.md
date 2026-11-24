@@ -1,21 +1,21 @@
-# Kemahiran: padat
+# Skill: compact
 
-**Dicetus oleh:** `compact memory`; atau secara automatik bila `core/session.md` melebihi 150 baris atau fail `core/` lain melebihi 250 baris
-**Membaca/Menulis:** `core/*`, `projects/*`, `diary/`
+**Triggered by:** `compact memory`; or automatically when `core/session.md` is over 150 lines or another `core/` file is over 250 lines
+**Reads/Writes:** `core/*`, `projects/*`, `diary/`
 
-## Langkah
-1. Baca fail yang terlalu panjang.
-2. Kelaskan setiap bahagian dalam fail itu:
-   - **Masih aktif:** kekalkan.
-   - **Selesai / lama tetapi ada nilai sejarah:** pindahkan ke diari hari ini sebagai entri `[padat]`, kemudian buang daripada fail asal.
-   - **Fakta kekal tentang pengguna** yang tersesat dalam `session.md`: pindahkan ke `user.md`.
-   - **Butiran projek:** pindahkan ke `projects/<nama>.md`.
-   - **Log sesi dalam `user.md`** (cth. "Sesi 5: ..."): ringkaskan jadi sifat/keutamaan kekal, dan pindahkan cerita ke diari.
-   - **Konteks projek lain dalam `session.md`:** pindahkan ke `projects/<nama>.md`.
-   - **Pendua atau sudah tidak benar:** buang.
-3. Tunjukkan ringkasan perubahan kepada pengguna **sebelum** menulis, contohnya: "Pindah 40 baris ke diari, buang 12 pendua". Tunggu pengguna setuju.
-4. Tulis perubahan, kemudian jalankan `git.md` kalau ada git.
+## Steps
+1. Read the file that is too long.
+2. Sort every part of that file:
+   - **Still active:** keep it.
+   - **Done / old but historically useful:** move it to today's diary as a `[compact]` entry, then remove it from the original file.
+   - **Lasting facts about the user** that strayed into `session.md`: move them to `user.md`.
+   - **Project details:** move them to `projects/<name>.md`.
+   - **Session logs in `user.md`** (e.g. "Session 5: ..."): boil them down to lasting traits/preferences, and move the story to the diary.
+   - **Another project's context in `session.md`:** move it to `projects/<name>.md`.
+   - **Duplicates or no longer true:** remove.
+3. Show the user a summary of the changes **before** writing, e.g. "Move 40 lines to the diary, remove 12 duplicates". Wait for the user to agree.
+4. Write the changes, then run `git.md` if git is used.
 
-## Jangan
-- Jangan buang apa-apa yang tidak wujud di tempat lain tanpa izin pengguna.
-- Jangan padatkan diari. Diari ialah rekod sejarah.
+## Don't
+- Don't remove anything that doesn't exist somewhere else without the user's permission.
+- Don't compact the diary. The diary is the historical record.

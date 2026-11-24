@@ -1,28 +1,30 @@
-# Kemahiran
+# Skills
 
-Setiap kemahiran ialah **satu fail markdown berisi langkah**. Mana-mana agent boleh membaca dan mengikutinya tanpa sistem plugin. Claude Code boleh juga memasang pembalut auto-cetus dalam `plugins/everkeep-skills/`.
+Each skill is **one markdown file of steps**. Any agent can read and follow it without a plugin system. Claude Code can also install the auto-trigger wrappers in `plugins/everkeep-skills/`.
 
-| Fail | Dicetus oleh | Hasil |
+| File | Triggered by | Result |
 |---|---|---|
-| `save.md` | `save`, `remember ...` | Kemas kini `core/session.md`, projek dan pengguna |
-| `diary.md` | `save diary` | Entri diari hari ini |
-| `recall.md` | `do you remember ...`, `when did we ...` | Cari dalam diary/projek, cerita semula |
-| `decision.md` | `log decision`, `why did we choose ...` | Log keputusan dalam fail projek |
-| `compact.md` | `compact memory`, atau `session.md` melebihi 150 baris | Ringkaskan dan pindahkan butiran lama |
-| `git.md` | selepas setiap save (kalau ada git), `commit memory`, `push memory` | Commit memori |
-| `new-skill.md` | `new skill` | Cipta fail kemahiran baru |
-| `init-project.md` | `init project` | Cipta `AGENTS.md` + `CLAUDE.md` (`@AGENTS.md`) dalam projek, dan fail projek Everkeep |
+| `save.md` | `save`, `remember ...` | Updates `core/session.md`, the project and the user |
+| `diary.md` | `save diary` | Today's diary entry |
+| `recall.md` | `do you remember ...`, `when did we ...` | Searches the diary/projects and tells the story back |
+| `decision.md` | `log decision`, `why did we choose ...` | Logs the decision in the project file |
+| `compact.md` | `compact memory`, or `session.md` over 150 lines | Summarises and moves old details out |
+| `git.md` | after every save (if git is used), `commit memory`, `push memory` | Commits the memory |
+| `new-skill.md` | `new skill` | Creates a new skill file |
+| `init-project.md` | `init project` | Creates `AGENTS.md` + `CLAUDE.md` (`@AGENTS.md`) in the project, and the Everkeep project file |
 
-## Format fail kemahiran
+Commands in the user's own language are understood too (e.g. Malay `simpan`, `simpan diari`, `kau ingat tak`).
+
+## Skill file format
 
 ```markdown
-# Kemahiran: <nama>
-**Dicetus oleh:** <frasa English standard> (frasa bahasa lain yang sama maksud juga diterima)
-**Membaca:** <fail>   **Menulis:** <fail>
+# Skill: <name>
+**Triggered by:** <standard English phrase> (phrases with the same meaning in other languages are accepted too)
+**Reads:** <files>   **Writes:** <files>
 
-## Langkah
+## Steps
 1. ...
 
-## Jangan
+## Don't
 - ...
 ```

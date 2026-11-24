@@ -1,17 +1,17 @@
-# Sesi
+# Session
 
-> Memori kerja jangka pendek untuk **satu projek aktif sahaja**. Sasaran bawah 80 baris, had 150.
-> **Tulis semula, jangan tambah bertimbun.** Bila pengguna tukar projek, pindahkan konteks lama ke `projects/<nama>.md` dahulu (lihat `skills/save.md`). Sejarah masuk ke `diary/`.
+> Short-term working memory for **one active project only**. Aim for under 80 lines, limit 150.
+> **Rewrite, don't pile up.** When the user switches projects, move the old context to `projects/<name>.md` first (see `skills/save.md`). History goes to `diary/`.
 
-- **Dikemas kini:** <YYYY-MM-DD HH:MM zon> oleh <agent>
-- **Projek aktif:** <nama-folder> (`<laluan folder>`)
-- **Fokus:** <satu ayat>
+- **Updated:** <YYYY-MM-DD HH:MM zone> by <agent>
+- **Active project:** <folder-name> (`<folder path>`)
+- **Focus:** <one sentence>
 
-## Di mana kita berhenti
-<2–4 ayat yang cukup untuk menyambung kerja tanpa perlu bertanya semula>
+## Where we left off
+<2–4 sentences, enough to resume work without asking again>
 
-## Baki
-- [ ] <tugas>
+## Open tasks
+- [ ] <task>
 
-## Jangan lupa
-- <perkara yang mudah terlepas: akaun mana, perangkap, janji kepada pengguna>
+## Don't forget
+- <things that are easy to miss: which account, pitfalls, promises made to the user>

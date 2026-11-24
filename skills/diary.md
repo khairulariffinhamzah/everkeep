@@ -1,24 +1,25 @@
-# Kemahiran: diari
+# Skill: diary
 
-**Dicetus oleh:** `save diary`, `write diary`; atau di hujung sesi yang panjang dan penting (tawarkan dahulu)
-**Membaca:** `diary/YYYY-MM-DD.md` hari ini   **Menulis:** fail yang sama (tambah sahaja)
+**Triggered by:** `save diary`, `write diary`; or at the end of a long, important session (offer first)
+**Reads:** today's `diary/YYYY-MM-DD.md`   **Writes:** the same file (append only)
 
-## Langkah
-1. Dapatkan tarikh dan masa sebenar daripada sistem, dalam zon masa pengguna (`core/user.md`). Jangan meneka.
-2. Buka `diary/YYYY-MM-DD.md`. Kalau belum wujud, cipta fail itu dengan tajuk `# Diari YYYY-MM-DD`.
-3. **Tambah** entri di hujung fail:
+## Steps
+1. Get the real date and time from the system, in the user's time zone (`core/user.md`). Never guess.
+2. Open `diary/YYYY-MM-DD.md`. If it doesn't exist yet, create it with the heading `# Diary YYYY-MM-DD`.
+3. **Append** an entry at the end of the file:
 
    ```markdown
-   ### HH:MM [nama-agent] <projek atau topik>
-   **Apa berlaku:** <2–5 baris>
-   **Keputusan:** <kalau ada>
-   **Belajar tentang {{USER_NAME}}:** <kalau ada>
-   **Seterusnya:** <1–3 perkara>
+   ### HH:MM [agent-name] <project or topic>
+   **What happened:** <2–5 lines>
+   **Decisions:** <if any>
+   **Learned about {{USER_NAME}}:** <if any>
+   **Next:** <1–3 items>
    ```
 
-4. Kalau hari ini hari pertama bulan baru, pindahkan fail diari bulan lepas ke `diary/archive/YYYY-MM/`.
-5. Kalau ada git, jalankan `git.md`.
+   `[agent-name]` is the agent writing the entry (e.g. `[claude-code]`, `[opencode]`), not the companion's name. Write the entry in the conversation language from `core/user.md`.
+4. If today is the first day of a new month, move last month's diary files to `diary/archive/YYYY-MM/`.
+5. If git is used, run `git.md`.
 
-## Jangan
-- Jangan sunting entri lama, termasuk entri yang ditulis oleh agent lain.
-- Jangan tulis perkara sensitif yang pengguna tidak mahu direkodkan.
+## Don't
+- Don't edit old entries, including entries written by other agents.
+- Don't record sensitive things the user doesn't want recorded.

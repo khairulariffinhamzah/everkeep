@@ -1,89 +1,89 @@
-# Setup Everkeep (wizard dijalankan oleh agent anda)
+# Everkeep setup (a wizard your agent runs)
 
-*Pengguna: buka folder ini dalam coding agent anda dan taip **`setup`**. Agent akan menjalankan langkah di bawah.*
+*User: open this folder in your coding agent and type **`setup`**. The agent runs the steps below.*
 
 ---
 
-## Arahan untuk agent
+## Instructions for the agent
 
-Jalankan langkah ini satu demi satu. Tanya pengguna satu soalan pada satu masa.
+Run these steps one by one. Ask the user one question at a time, in the language they used to type `setup` (or the language they pick in question 4).
 
-### Langkah 1: Soal jawab
+**Date and time:** whenever a step needs the date or time, get it from the system (e.g. `date` or PowerShell `Get-Date`) in the user's time zone. Never guess from model memory: models often get the day wrong.
 
-1. Apa nama AI teman anda? (contoh: Mira, Jarvis, Luna). Nama ini juga menjadi **kata panggilan**.
-2. Nama anda, atau nama yang anda mahu dipanggil?
-3. Gaya hubungan? (contoh: coding partner and friendly assistant / mentor / pembantu profesional / kawan santai)
-4. Bahasa perbualan? (BM / English / campur)
-5. Zon masa? (cth. Asia/Kuala_Lumpur). Kesan daripada sistem dan minta pengguna sahkan sahaja.
+### Step 1: Questions
 
-### Langkah 2: Isi placeholder
+1. What is your AI companion's name? (e.g. Mira, Jarvis, Luna). This name is also the **call word**.
+2. Your name, or what you'd like to be called?
+3. Relationship style? (e.g. coding partner and friendly assistant / mentor / professional assistant / casual friend)
+4. Conversation language? (e.g. English / Bahasa Melayu / mixed)
+5. Time zone? (e.g. Asia/Kuala_Lumpur). Detect it from the system and just ask the user to confirm.
 
-Gantikan placeholder dalam **semua** fail `.md` dan `.json`, kecuali folder `_dev/`. **Kecuali `{{MEMORY_ROOT}}`:** biarkan ia dalam `connectors/CONNECTOR.md` dan isi hanya dalam salinan yang ditambah ke fail arahan global agent (Langkah 4). Dengan cara ini folder memori boleh dibawa ke komputer lain tanpa laluan yang putus.
+### Step 2: Fill in the placeholders
 
-| Placeholder | Nilai |
+Replace the placeholders in **all** `.md` and `.json` files, except the `_dev/` folder. **Except `{{MEMORY_ROOT}}`:** leave it in `connectors/CONNECTOR.md` and fill it in only in the copy added to the agent's global instructions file (Step 4). That way the memory folder can move to another computer without broken paths.
+
+| Placeholder | Value |
 |---|---|
-| `{{AI_NAME}}` | jawapan 1 |
-| `{{USER_NAME}}` | jawapan 2 |
-| `{{RELATIONSHIP_STYLE}}` | jawapan 3 |
-| `{{SETUP_DATE}}` | tarikh hari ini, `YYYY-MM-DD`, **daripada sistem** (lihat nota di bawah) |
-| `{{MEMORY_ROOT}}` | laluan penuh folder ini **di komputer ini**, dengan `/` (cth. `C:/Everkeep` atau `/home/ali/everkeep`). Hanya dalam blok penyambung |
+| `{{AI_NAME}}` | answer 1 |
+| `{{USER_NAME}}` | answer 2 |
+| `{{RELATIONSHIP_STYLE}}` | answer 3 |
+| `{{SETUP_DATE}}` | today's date, `YYYY-MM-DD`, **from the system** |
+| `{{MEMORY_ROOT}}` | full path of this folder **on this computer**, with `/` (e.g. `C:/Everkeep` or `/home/ali/everkeep`). Only in the connector block |
 
-**Tarikh dan masa:** dapatkan daripada sistem (cth. `date` atau PowerShell `Get-Date`) dalam zon masa pengguna. Jangan meneka daripada ingatan model, kerana model selalu tersilap hari.
+Then search for `{{` to make sure no placeholder is left (except `{{MEMORY_ROOT}}` in `connectors/CONNECTOR.md`, plus `SETUP.md` and `_dev/`).
 
-Selepas itu, semak dengan carian `{{` untuk memastikan tiada placeholder yang tertinggal (kecuali `{{MEMORY_ROOT}}` dalam `connectors/CONNECTOR.md`, serta `SETUP.md` dan `_dev/`).
+Also fill in the `<...>` parts of `core/identity.md` (language, voice) and `core/user.md` (language, time zone, field) from the answers. If the user did not answer something, leave the `<...>` as it is. Never make things up.
 
-Isi juga bahagian `<...>` dalam `core/identity.md` (bahasa, suara) dan `core/user.md` (bahasa, zon masa, bidang) berdasarkan jawapan. Kalau pengguna tidak menjawab sesuatu, biarkan `<...>` kosong. Jangan reka.
+### Step 3: Record the setup
 
-### Langkah 3: Rekod setup
-
-Cipta `diary/YYYY-MM-DD.md` dengan entri pertama. Tarikh dan masa daripada sistem; `[nama-agent]` ialah nama agent yang menjalankan setup (cth. `[claude-code]`, `[opencode]`), bukan nama AI teman:
+Create `diary/YYYY-MM-DD.md` with the first entry. Date and time come from the system; `[agent-name]` is the agent running the setup (e.g. `[claude-code]`, `[opencode]`), not the companion's name:
 
 ```markdown
-# Diari YYYY-MM-DD
+# Diary YYYY-MM-DD
 
-### HH:MM [nama-agent] Setup
-**Apa berlaku:** <nama AI> dilahirkan. Pengguna: <nama>. Gaya: <gaya>. Akar memori: <laluan>.
-**Seterusnya:** sambungkan agent dan uji panggilan.
+### HH:MM [agent-name] Setup
+**What happened:** <AI name> was born. User: <name>. Style: <style>. Memory root: <path>.
+**Next:** connect the agents and test the call.
 ```
 
-### Langkah 4: Sambungkan ke agent
+### Step 4: Connect the agents
 
-1. Tunjukkan jadual dalam `connectors/README.md` dan tanya agent mana yang pengguna guna.
-2. Untuk setiap agent yang dipilih:
-   - Kalau fail arahan global itu wujud, **buat salinan sandaran** (`<fail>.bak-everkeep`).
-   - Tunjukkan teks yang akan ditambah, dan tunggu pengguna setuju.
-   - **Tambah** blok dari `connectors/CONNECTOR.md` di hujung fail, dengan `{{MEMORY_ROOT}}` diganti laluan folder ini di komputer ini. Jangan tulis ganti kandungan sedia ada.
-   - Kalau blok `<!-- everkeep:start -->` sudah ada, kemas kini blok itu sahaja.
-3. Untuk agent yang hanya ada kotak "Custom Instructions", beri teks itu kepada pengguna untuk ditampal sendiri.
-4. **Claude Code (pilihan):** tawarkan pemasangan plugin `everkeep-skills`, iaitu pembalut auto-cetus untuk kemahiran (lihat `plugins/everkeep-skills/README.md`).
-5. **Claude Code (pilihan):** tawarkan status line yang menunjukkan bila kali terakhir `save`, saiz sesi dan diari hari ini (lihat `extras/statusline/README.md`). Pasang dengan `python extras/statusline/install.py`. Kalau pengguna sudah ada status line lain, tanya dahulu sebelum guna `--force`.
+1. Show the table in `connectors/README.md` and ask which agents the user uses.
+2. For each chosen agent:
+   - If its global instructions file exists, **make a backup** (`<file>.bak-everkeep`).
+   - Show the text that will be added, and wait for the user to agree.
+   - **Append** the block from `connectors/CONNECTOR.md` to the end of the file, with `{{MEMORY_ROOT}}` replaced by this folder's path on this computer. Never overwrite existing content.
+   - If a `<!-- everkeep:start -->` block is already there, update only that block.
+3. For agents that only have a "Custom Instructions" box, give the user the text to paste themselves.
+4. **Claude Code (optional):** offer to install the `everkeep-skills` plugin, the auto-trigger wrappers for the skills (see `plugins/everkeep-skills/README.md`).
+5. **Claude Code (optional):** offer the status line that shows the last `save`, session size and today's diary (see `extras/statusline/README.md`). Install with `python extras/statusline/install.py`. If the user already has another status line, ask before using `--force`.
 
-### Langkah 5: Git (pilihan, disyorkan)
+### Step 5: Git (optional, recommended)
 
-Tanya: "Mahu simpan sejarah memori dengan git? Ia boleh undur kalau ada fail yang rosak."
-Kalau setuju, jalankan `git init` dan buat commit pertama. **Kalau folder ini di-clone daripada repo templat Everkeep yang awam**, buang atau tukar `origin` (`git remote remove origin`) sebelum apa-apa push, supaya memori peribadi tidak dihantar ke repo awam. Repo GitHub **mesti private** kalau pengguna mahu backup ke awan. Kalau pengguna guna lebih dari satu komputer, terangkan pilihan dalam `skills/git.md` → "Banyak peranti" dan catat pilihannya.
+Ask: "Do you want to keep your memory's history with git? It lets you undo if a file gets damaged."
+If yes, run `git init` and make the first commit. **If this folder was cloned from the public Everkeep template repo**, remove or change `origin` (`git remote remove origin`) before any push, so personal memory is never sent to the public repo. The GitHub repo **must be private** if the user wants a cloud backup. If the user works on more than one computer, explain the options in `skills/git.md` → "Multiple devices" and record their choice.
 
-### Langkah 6: Uji
+### Step 6: Test
 
-Minta pengguna buka sesi baru dalam agent yang sudah disambung, dari folder lain, dan taip nama AI.
-Ujian berjaya kalau AI menyapa pengguna dengan namanya.
+Ask the user to open a new session in a connected agent, from a different folder, and type the AI's name.
+The test passes if the AI greets the user by name.
 
-Akhir sekali, tambah baris `SETUP SELESAI: YYYY-MM-DD` di bahagian atas fail ini supaya setup tidak dijalankan dua kali.
+Finally, add the line `SETUP DONE: YYYY-MM-DD` at the top of this file so setup never runs twice.
 
 ---
 
-## Komputer tambahan (memori sedia ada)
+## Another computer (existing memory)
 
-Pengguna sudah ada memori Everkeep dan mahu gunanya di komputer lain:
+The user already has Everkeep memory and wants to use it on another computer:
 
-1. Dapatkan folder memori di komputer baru: `git clone <repo private pengguna>` (disyorkan), atau salin folder. **Satu salinan sahaja di setiap komputer.**
-2. Buka folder itu dalam agent dan taip `setup`. Agent nampak `SETUP SELESAI` di atas fail ini, jadi:
-   - **Jangan** tanya soalan Langkah 1 atau tulis semula `core/`.
-   - Jalankan **Langkah 4 sahaja** (sambungkan agent), dengan `{{MEMORY_ROOT}}` = laluan folder di komputer ini.
-   - Pilihan: status line dan plugin Claude Code.
-3. Ikut `skills/git.md` → "Banyak peranti": `git pull --rebase` sebelum mula kerja, commit + push selepas `save`.
-4. Uji: buka sesi baru dari folder lain dan panggil nama AI.
+1. Get the memory folder onto the new computer: `git clone <the user's private repo>` (recommended), or copy the folder. **Only one copy per computer.**
+2. Open that folder in the agent and type `setup`. The agent sees `SETUP DONE` at the top of this file (older setups may say `SETUP SELESAI`), so:
+   - **Don't** ask the Step 1 questions or rewrite `core/`.
+   - Run **Step 4 only** (connect the agents), with `{{MEMORY_ROOT}}` = the folder's path on this computer.
+   - Optional: the Claude Code status line and plugin.
+3. Follow `skills/git.md` → "Multiple devices": `git pull --rebase` before you start working, commit + push after `save`.
+4. Test: open a new session from another folder and call the AI's name.
 
-## Selepas setup
+## After setup
 
-Senarai kemahiran ada dalam `skills/README.md`. Untuk menambah kemahiran sendiri, taip `new skill`.
+The list of skills is in `skills/README.md`. To add your own skill, type `new skill`.

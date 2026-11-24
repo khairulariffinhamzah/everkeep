@@ -4,5 +4,5 @@
 *.bak-everkeep
 __pycache__/
 
-# Nota pembangunan peribadi (tidak diterbitkan)
+# Private development notes (not published)
 _dev/

@@ -1,18 +1,18 @@
-# Kemahiran: new skill
+# Skill: new skill
 
-**Dicetus oleh:** `new skill`, `create skill`
-**Menulis:** `skills/<nama>.md`, `skills/README.md`
+**Triggered by:** `new skill`, `create skill`
+**Writes:** `skills/<name>.md`, `skills/README.md`
 
-## Langkah
-1. Tanya pengguna, satu soalan pada satu masa, hanya perkara yang belum jelas:
-   - Apa yang kemahiran ini buat? (satu ayat)
-   - Frasa apa yang mencetusnya?
-   - Fail mana yang dibaca dan ditulis?
-2. Tetapkan nama dalam huruf kecil dengan sengkang (cth. `semak-bajet`). Kalau fail dengan nama itu sudah wujud, berhenti dan tanya pengguna.
-3. Tulis `skills/<nama>.md` mengikut format dalam `skills/README.md`.
-4. Tambah satu baris untuk kemahiran ini dalam jadual `skills/README.md` dan dalam jadual "Kata kunci" `EVERKEEP.md`.
-5. Tunjukkan hasilnya kepada pengguna. Kalau ada git, jalankan `git.md`.
-6. Pilihan untuk Claude Code: cipta pembalut auto-cetus dalam `plugins/everkeep-skills/skills/<nama>/SKILL.md`, ikut contoh pembalut sedia ada.
+## Steps
+1. Ask the user, one question at a time, only what isn't clear yet:
+   - What does this skill do? (one sentence)
+   - Which phrases trigger it?
+   - Which files does it read and write?
+2. Choose a lowercase, hyphenated name (e.g. `check-budget`). If a file with that name already exists, stop and ask the user.
+3. Write `skills/<name>.md` following the format in `skills/README.md`.
+4. Add a row for the skill to the table in `skills/README.md` and to the "Keywords" table in `EVERKEEP.md`.
+5. Show the result to the user. If git is used, run `git.md`.
+6. Optional for Claude Code: create an auto-trigger wrapper in `plugins/everkeep-skills/skills/<name>/SKILL.md`, following the existing wrappers.
 
-## Jangan
-- Jangan reka tujuan kemahiran. Kalau tidak jelas, tanya pengguna.
+## Don't
+- Don't invent the skill's purpose. If it isn't clear, ask the user.

@@ -93,7 +93,7 @@ Small or cheap models may skip steps. If that happens, say: *"Mira, read EVERKEE
 
 ## More than one computer
 
-Keep your memory in a **private** git repo. On the new computer, clone it and type `setup`: the agent sees setup is already done and only connects itself. Pull before you start, push after you `save`. Memory files contain no absolute paths, so the folder can live anywhere on each machine. Details: `SETUP.md` → *Komputer tambahan* and `skills/git.md` → *Banyak peranti*.
+Keep your memory in a **private** git repo. On the new computer, clone it and type `setup`: the agent sees setup is already done and only connects itself. Pull before you start, push after you `save`. Memory files contain no absolute paths, so the folder can live anywhere on each machine. Details: `SETUP.md` → *Another computer* and `skills/git.md` → *Multiple devices*.
 
 ## Structure
 
@@ -114,7 +114,7 @@ connectors/              connector block + instruction-file locations per agent
 extras/statusline/       Claude Code status line: AI name, last save, session size (optional)
 ```
 
-> **Note:** the protocol and skill files are currently written in Malay (agents read them fine in any language). An English version of the internal files is planned.
+> **Note:** the protocol and skill files are in English. Your companion still talks to you in the language you choose during setup.
 
 ## License
 

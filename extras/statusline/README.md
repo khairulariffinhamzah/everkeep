@@ -1,33 +1,33 @@
-# Status line Everkeep (Claude Code sahaja, pilihan)
+# Everkeep status line (Claude Code only, optional)
 
-Satu baris di bawah kotak input Claude Code:
+One line below the Claude Code input box:
 
 ```
-🔒 Mira · 💾 12m ago · session 34/150 · diary ✓ · ⬆ 2  |  Sonnet 5.5 · 📁 kedai-kek · ctx 41% · ⎇ main*3 · $0.42
+🔒 Mira · 💾 12m ago · session 34/150 · diary ✓ · ⬆ 2  |  Sonnet 5.5 · 📁 cake-shop · ctx 41% · ⎇ main*3 · $0.42
 ```
 
-| Bahagian | Maksud |
+| Part | Meaning |
 |---|---|
-| `🔒 Mira` | AI teman sudah bangun dalam sesi ini (hanya muncul selepas anda panggil namanya) |
-| `💾 12m ago` | Kali terakhir `core/session.md` disimpan. Hijau < 1 jam, kuning < 6 jam, merah selepas itu: masa untuk `save` |
-| `session 34/150` | Saiz `core/session.md`. Kuning > 80 baris, merah > 150: masa untuk `compact memory` |
-| `diary ✓` / `diary –` | Ada / tiada entri diari hari ini |
-| `⬆ 2` | Fail memori yang belum di-commit (kalau folder memori ialah repo git): masa untuk `commit memory` |
-| `ctx 41%` | Penggunaan konteks. Hijau < 50%, kuning < 80%, merah selepas itu |
-| `⎇ main*3` | Branch git projek semasa dan bilangan fail yang berubah |
+| `🔒 Mira` | The companion is awake in this session (only shows after you call its name) |
+| `💾 12m ago` | When `core/session.md` was last saved. Green < 1 hour, yellow < 6 hours, red after that: time to `save` |
+| `session 34/150` | Size of `core/session.md`. Yellow > 80 lines, red > 150: time to `compact memory` |
+| `diary ✓` / `diary –` | There is / isn't a diary entry today |
+| `⬆ 2` | Memory files not committed yet (if the memory folder is a git repo): time to `commit memory` |
+| `ctx 41%` | Context usage. Green < 50%, yellow < 80%, red after that |
+| `⎇ main*3` | The current project's git branch and number of changed files |
 
-Sebelum AI dipanggil, hanya bahagian kanan (model, folder, konteks, branch, kos) dipaparkan.
+Before the companion is called, only the right-hand part (model, folder, context, branch, cost) is shown.
 
-## Pasang
+## Install
 
-Perlukan Python 3.
+Needs Python 3.
 
 ```bash
 python extras/statusline/install.py
 ```
 
-- Skrip menambah `statusLine` ke `~/.claude/settings.json` dan simpan sandaran `settings.json.bak-everkeep`.
-- Kalau anda sudah ada status line lain, skrip **tidak** menggantinya. Guna `--force` kalau memang mahu ganti.
-- Buang: `python extras/statusline/install.py --remove`
+- The script adds `statusLine` to `~/.claude/settings.json` and keeps a backup, `settings.json.bak-everkeep`.
+- If you already have another status line, the script does **not** replace it. Use `--force` if you really want to replace it.
+- Remove: `python extras/statusline/install.py --remove`
 
-Selepas memindahkan folder Everkeep, jalankan `install.py` sekali lagi supaya laluan dikemas kini.
+After moving the Everkeep folder, run `install.py` again so the path is updated.

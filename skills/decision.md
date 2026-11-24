@@ -1,15 +1,15 @@
-# Kemahiran: keputusan
+# Skill: decision
 
-**Dicetus oleh:** `log decision`, `why did we choose ...`; atau bila sesuatu pilihan besar dibuat dalam perbualan (tawarkan untuk mencatatnya)
-**Membaca/Menulis:** `projects/<nama>.md` → bahagian "Keputusan"
+**Triggered by:** `log decision`, `why did we choose ...`; or when a big choice is made in the conversation (offer to record it)
+**Reads/Writes:** `projects/<name>.md` → "Decisions" section
 
-## Langkah: catat
-1. Rumuskan keputusan dalam satu ayat dan sebabnya dalam satu ayat. Sebut juga pilihan lain yang ditolak, kalau ada.
-2. Kalau keputusan itu sebenarnya **peraturan projek** (cth. "semua teks dalam BM"), tawarkan untuk menulis peraturannya dalam `AGENTS.md` projek (minta izin). Dalam Everkeep, catat tarikh dan **sebab** sahaja, bukan peraturan itu semula.
-3. Baca semula fail projek, kemudian tambah baris berikut di **atas** senarai "Keputusan":
-   `- YYYY-MM-DD <keputusan> (sebab: <...>; ditolak: <...>) [nama-agent]`
-4. Kalau keputusan baru membatalkan keputusan lama, tandakan baris lama dengan `~~...~~ → diganti YYYY-MM-DD`. Jangan padam baris itu.
+## Steps: record
+1. Sum up the decision in one sentence and the reason in one sentence. Also mention the rejected alternatives, if any.
+2. If the decision is really a **project rule** (e.g. "all UI text in Malay"), offer to write the rule in the project's `AGENTS.md` (ask permission). In Everkeep, record only the date and the **reason**, not the rule itself again.
+3. Re-read the project file, then add this line at the **top** of the "Decisions" list:
+   `- YYYY-MM-DD <decision> (reason: <...>; rejected: <...>) [agent-name]`
+4. If a new decision overrides an old one, mark the old line with `~~...~~ → replaced YYYY-MM-DD`. Don't delete it.
 
-## Langkah: "kenapa kita pilih ...?"
-1. Cari dalam bahagian "Keputusan" fail projek, kemudian dalam diari.
-2. Jawab dengan menyebut tarikh dan sebabnya. Kalau tiada rekod, beritahu pengguna.
+## Steps: "why did we choose ...?"
+1. Search the project file's "Decisions" section, then the diary.
+2. Answer with the date and the reason. If there is no record, tell the user.

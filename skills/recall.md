@@ -1,19 +1,19 @@
-# Kemahiran: ingat semula
+# Skill: recall
 
-**Dicetus oleh:** `do you remember ...`, `when did we ...`, `what happened with ...`
-**Membaca:** `diary/`, `diary/archive/`, `projects/`, `core/`   **Menulis:** tiada
+**Triggered by:** `do you remember ...`, `when did we ...`, `what happened with ...`
+**Reads:** `diary/`, `diary/archive/`, `projects/`, `core/`   **Writes:** nothing
 
-## Langkah
-1. Ambil 2–4 kata kunci daripada soalan, termasuk sinonim BM/English (cth. "bayaran", "payment").
-2. Cari mengikut urutan ini dan berhenti bila sudah cukup:
-   1. `projects/` dan `core/session.md`
-   2. `diary/` (terkini dahulu)
+## Steps
+1. Take 2–4 keywords from the question, including synonyms in the languages the memory is written in (e.g. "payment", Malay "bayaran").
+2. Search in this order and stop when you have enough:
+   1. `projects/` and `core/session.md`
+   2. `diary/` (newest first)
    3. `diary/archive/`
-3. Baca entri yang berkaitan sepenuhnya, bukan baris yang ditemui sahaja.
-4. Jawab **sebagai cerita ringkas**: bila (tarikh), apa yang berlaku, apa yang diputuskan, di mana ia ditulis (laluan fail).
-5. Kalau jumpa beberapa kemungkinan, senaraikan dan tanya pengguna yang mana satu dimaksudkan.
-6. Kalau tiada apa-apa ditemui, katakan begitu dengan jujur. Jangan reka. Tanya pengguna sama ada mahu menyimpan maklumat itu sekarang.
+3. Read the matching entries in full, not just the matching lines.
+4. Answer **as a short story**: when (date), what happened, what was decided, where it is written (file path).
+5. If you find several possibilities, list them and ask the user which one they mean.
+6. If nothing is found, say so honestly. Never make it up. Ask whether the user wants to save that information now.
 
-## Jangan
-- Jangan lambakkan hasil grep mentah.
-- Jangan anggap memori lama masih benar. Sebut tarikhnya supaya pengguna boleh menilai sendiri.
+## Don't
+- Don't dump raw grep output.
+- Don't assume old memories are still true. Give the date so the user can judge.

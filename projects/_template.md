@@ -1,20 +1,20 @@
-# Projek: <nama-folder>
+# Project: <folder-name>
 
-> Salin fail ini sebagai `projects/<nama-folder-projek>.md`. Nama fail mesti sama dengan nama folder projek supaya agent boleh memadankannya secara automatik.
+> Copy this file as `projects/<project-folder-name>.md`. The file name must match the project folder's name so agents can match it automatically.
 >
-> **Fail ini untuk memori peribadi sahaja:** kemajuan, keputusan dan sebabnya, baki kerja, perangkap. Apa projek ini, stack, arahan dan peraturan tinggal dalam `AGENTS.md` projek. **Jangan salin dari sana.**
+> **This file is for personal memory only:** progress, decisions and their reasons, open tasks, pitfalls. What the project is, its stack, commands and rules live in the project's `AGENTS.md`. **Don't copy from there.**
 
-- **Folder:** `<laluan penuh>`
-- **Peraturan projek:** `<laluan penuh>/AGENTS.md` (atau "tiada")
-- **Status:** <idea / bina / live / rehat>
-- **Dikemas kini:** <YYYY-MM-DD> oleh <agent>
+- **Folder:** `<full path>`
+- **Project rules:** `<full path>/AGENTS.md` (or "none")
+- **Status:** <idea / building / live / paused>
+- **Updated:** <YYYY-MM-DD> by <agent>
 
-## Keputusan
-*Terkini di atas. Catat **sebab dan konteks** sahaja. Kalau keputusan itu jadi peraturan projek, peraturannya ditulis dalam `AGENTS.md`, dan di sini cukup tarikh + sebab.*
-- <YYYY-MM-DD> <keputusan> (sebab: <...>)
+## Decisions
+*Newest first. Record **the reason and context** only. If a decision becomes a project rule, the rule goes in `AGENTS.md`, and here the date + reason is enough.*
+- <YYYY-MM-DD> <decision> (reason: <...>)
 
-## Baki
-- [ ] <tugas>
+## Open tasks
+- [ ] <task>
 
-## Perangkap
-- <apa yang pernah silap dan cara mengelaknya>
+## Pitfalls
+- <what went wrong before and how to avoid it>

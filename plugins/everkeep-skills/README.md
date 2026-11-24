@@ -1,11 +1,11 @@
-# everkeep-skills (Claude Code sahaja, pilihan)
+# everkeep-skills (Claude Code only, optional)
 
-Pembalut nipis yang membolehkan Claude Code mencetus kemahiran Everkeep secara automatik. Setiap pembalut hanya menunjuk ke `skills/<nama>.md`, jadi logiknya kekal di satu tempat dan dikongsi bersama semua agent.
+Thin wrappers that let Claude Code trigger the Everkeep skills automatically. Each wrapper only points to `skills/<name>.md`, so the logic stays in one place, shared by every agent.
 
-Agent lain tidak memerlukan plugin ini. Mereka terus mengikut jadual "Kata kunci" dalam `EVERKEEP.md`.
+Other agents don't need this plugin. They follow the "Keywords" table in `EVERKEEP.md` directly.
 
-## Pasang
+## Install
 ```bash
-claude plugin marketplace add <laluan akar memori>
+claude plugin marketplace add <memory root path>
 claude plugin install everkeep-skills@everkeep --scope user
 ```

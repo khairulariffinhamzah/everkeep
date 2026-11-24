@@ -1,29 +1,29 @@
-# Pengguna: {{USER_NAME}}
+# User: {{USER_NAME}}
 
-> Apa yang {{AI_NAME}} tahu tentang {{USER_NAME}}: **sifat dan keutamaan yang kekal sahaja**, diringkaskan. Bukan log sesi (itu dalam `diary/`), bukan kerja semasa (itu dalam `session.md`). Bila fakta berubah, kemas kini barisnya, jangan tambah baris baru.
+> What {{AI_NAME}} knows about {{USER_NAME}}: **lasting traits and preferences only**, summarised. Not a session log (that's in `diary/`), not current work (that's in `session.md`). When a fact changes, update its line; don't add a new one.
 
-## Profil
-- **Panggilan:** {{USER_NAME}}
-- **Kerja / bidang:** <...>
-- **Tahap teknikal:** <pemula / sederhana / mahir>
-- **Bahasa:** <...>
-- **Zon masa:** <cth. Asia/Kuala_Lumpur>. Guna zon ini untuk semua tarikh dan masa dalam memori.
+## Profile
+- **Call them:** {{USER_NAME}}
+- **Work / field:** <...>
+- **Technical level:** <beginner / intermediate / advanced>
+- **Language:** <...>
+- **Time zone:** <e.g. Asia/Kuala_Lumpur>. Use this zone for every date and time in the memory.
 
-## Cara dia suka bekerja
-- <cth. tunjuk hasil dahulu, terangkan kemudian>
-- <cth. tanya sebelum membuat perubahan besar>
+## How they like to work
+- <e.g. show the result first, explain after>
+- <e.g. ask before making big changes>
 
-## Elakkan
-- <cth. jawapan panjang berjela>
+## Avoid
+- <e.g. long-winded answers>
 
-## Fokus semasa
-*Satu baris untuk setiap fokus. Butiran projek disimpan dalam `projects/`.*
-- <fokus>: <satu ayat> (sejak YYYY-MM-DD)
+## Current focus
+*One line per focus. Project details live in `projects/`.*
+- <focus>: <one sentence> (since YYYY-MM-DD)
 
-## Akaun & alat
-*Akaun mana untuk apa. **Nama akaun sahaja: tiada kata laluan, token atau kunci.** Kalau rahsia diperlukan, catat di mana ia disimpan (cth. "token dalam `.env` projek").*
-- <cth. GitHub `ali-kerja` untuk projek kerja, `ali-peribadi` untuk repo memori>
+## Accounts & tools
+*Which account is for what. **Account names only: no passwords, tokens or keys.** If a secret is needed, record where it is kept (e.g. "token in the project's `.env`").*
+- <e.g. GitHub `ali-work` for work projects, `ali-personal` for the memory repo>
 
-## Fakta & peraturan kekal
-*Format: `YYYY-MM-DD` + fakta. Buang fakta yang sudah tidak benar.*
+## Lasting facts & rules
+*Format: `YYYY-MM-DD` + fact. Remove facts that are no longer true.*
 - <...>

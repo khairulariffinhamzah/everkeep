@@ -1,54 +1,54 @@
-# Penyambung: tempat letak teks `CONNECTOR.md` untuk setiap agent
+# Connectors: where to put the `CONNECTOR.md` text for each agent
 
-Setiap agent ada fail arahan global sendiri. Tambah blok dalam `CONNECTOR.md` di hujung fail itu. Jangan tulis ganti kandungan sedia ada.
+Each agent has its own global instructions file. Append the block in `CONNECTOR.md` to the end of that file. Never overwrite existing content.
 
-> ⚠️ **Status: belum disahkan.** Laluan di bawah ditulis berdasarkan ingatan dan mesti diuji pada versi terkini setiap agent sebelum dikeluarkan. Agent selalu menukar laluan ini.
+> ⚠️ **Paths change.** Agents move these files between versions. Rows marked ✅ were tested in November 2026; check the others against the agent's current docs.
 
-| Agent | Fail arahan global (anggaran) | Status |
+| Agent | Global instructions file | Status |
 |---|---|---|
-| Claude Code (CLI, VS Code, JetBrains) | `~/.claude/CLAUDE.md` | ✅ terbukti |
-| Claude Desktop: tab **Code** | `~/.claude/CLAUDE.md`, fail sama dengan Claude Code | ⏳ sepatutnya jalan, perlu diuji |
-| Claude Desktop: tab **Cowork** | memori Cowork sendiri (lihat bahagian Claude di bawah) | ⏳ perlu diuji |
-| Claude Desktop / claude.ai: tab **Chat** | arahan Project atau tetapan peribadi + connector sistem fail | ⚠️ terhad, lihat di bawah |
-| OpenCode | `~/.config/opencode/AGENTS.md` | ✅ terbukti (setup + panggilan, Nov 2026) |
-| Antigravity | `~/.gemini/GEMINI.md` (Global Rules) | ✅ terbukti (panggilan, Nov 2026) |
-| Gemini CLI | `~/.gemini/GEMINI.md`, fail sama dengan Antigravity | ⚠️ akaun individu percuma ditolak Google ("IneligibleTierError", Nov 2026): guna Antigravity |
-| Codex CLI | `~/.codex/AGENTS.md` | ⏳ perlu diuji |
-| Cline | folder Global Rules (dalam tetapan Cline) | ⏳ perlu diuji |
-| Roo Code / Kilo Code | `~/.roo/rules/` / `~/.kilocode/rules/` | ⏳ perlu diuji |
-| Aider | `~/.aider.conf.yml` → `read: [<akar memori>/connectors/CONNECTOR.md]` (salinan yang sudah diisi) | ⏳ perlu diuji |
-| Agent lain | kotak "Custom Instructions" / "System Prompt" dalam tetapan | tampal manual |
+| Claude Code (CLI, VS Code, JetBrains) | `~/.claude/CLAUDE.md` | ✅ tested |
+| Claude Desktop: **Code** tab | `~/.claude/CLAUDE.md`, same file as Claude Code | ⏳ should work, to be tested |
+| Claude Desktop: **Cowork** tab | Cowork's own memory (see the Claude section below) | ⏳ to be tested |
+| Claude Desktop / claude.ai: **Chat** tab | Project instructions or personal preferences + a file system connector | ⚠️ limited, see below |
+| OpenCode | `~/.config/opencode/AGENTS.md` | ✅ tested (setup + wake-up, Nov 2026) |
+| Antigravity | `~/.gemini/GEMINI.md` (Global Rules) | ✅ tested (wake-up, Nov 2026) |
+| Gemini CLI | `~/.gemini/GEMINI.md`, same file as Antigravity | ⚠️ free individual accounts rejected by Google ("IneligibleTierError", Nov 2026): use Antigravity |
+| Codex CLI | `~/.codex/AGENTS.md` | ⏳ to be tested |
+| Cline | Global Rules folder (in Cline's settings) | ⏳ to be tested |
+| Roo Code / Kilo Code | `~/.roo/rules/` / `~/.kilocode/rules/` | ⏳ to be tested |
+| Aider | `~/.aider.conf.yml` → `read: [<memory root>/connectors/CONNECTOR.md]` (a filled-in copy) | ⏳ to be tested |
+| Other agents | the "Custom Instructions" / "System Prompt" box in settings | paste by hand |
 
-**WSL:** guna folder Windows yang sama melalui `/mnt/c/...` (cth. `/mnt/c/Everkeep`). Jangan buat salinan kedua dalam Linux. Dalam blok penyambung, tulis kedua-dua laluan kalau pengguna guna Windows dan WSL.
+**WSL:** use the same Windows folder through `/mnt/c/...` (e.g. `/mnt/c/Everkeep`). Never make a second copy inside Linux. If the user works in both Windows and WSL, write both paths in the connector block.
 
-`~` = folder pengguna (Windows: `C:\Users\<nama>`). Di Windows, kebanyakan agent guna `C:\Users\<nama>\.claude`, `C:\Users\<nama>\.gemini` dan seterusnya.
+`~` = the user's home folder (Windows: `C:\Users\<name>`). On Windows, most agents use `C:\Users\<name>\.claude`, `C:\Users\<name>\.gemini` and so on.
 
-## Claude: fail mana yang dibaca
+## Claude: which files are read
 
-### Claude Code (CLI, IDE, tab Code dalam Claude Desktop)
-Untuk peraturan **projek**, Claude Code membaca:
-1. `CLAUDE.md` (fail utama; juga dicari ke atas dalam folder induk)
-2. `AGENTS.md`, **hanya sebagai sandaran** bila tiada `CLAUDE.md` (sejak v2.1.277, boleh ditukar dalam `/config` → "Project instructions")
+### Claude Code (CLI, IDE, Code tab in Claude Desktop)
+For **project** rules, Claude Code reads:
+1. `CLAUDE.md` (the main file; also searched upwards through parent folders)
+2. `AGENTS.md`, **only as a fallback** when there is no `CLAUDE.md` (since v2.1.277; can be changed in `/config` → "Project instructions")
 
-Sebab itu `init project` sentiasa cipta `CLAUDE.md` berisi `@AGENTS.md`:
-- Versi lama, sesi pertama selepas install/upgrade, dan sesetengah pemasangan (Bedrock, Vertex, gateway) hanya membaca `CLAUDE.md`.
-- **Kalau `CLAUDE.md` wujud tetapi tidak merujuk `@AGENTS.md`, `AGENTS.md` diabaikan.**
-- Import tidak menyebabkan `AGENTS.md` dibaca dua kali.
+That is why `init project` always creates a `CLAUDE.md` containing `@AGENTS.md`:
+- Older versions, the first session after an install/upgrade, and some setups (Bedrock, Vertex, gateways) only read `CLAUDE.md`.
+- **If `CLAUDE.md` exists but does not reference `@AGENTS.md`, `AGENTS.md` is ignored.**
+- The import does not make `AGENTS.md` load twice.
 
-Untuk **Everkeep**, blok penyambung diletak dalam `~/.claude/CLAUDE.md` (global), jadi AI teman boleh dipanggil dari mana-mana folder. Tab Code dalam Claude Desktop berkongsi tetapan yang sama dengan CLI.
+For **Everkeep**, the connector block goes in `~/.claude/CLAUDE.md` (global), so the companion can be called from any folder. The Code tab in Claude Desktop shares the same settings as the CLI.
 
-### Claude Desktop: tab Cowork
-Cowork ada folder memori sendiri dengan `CLAUDE.md` berasingan, bukan `~/.claude/CLAUDE.md`. Cadangan (belum diuji): tampal blok `CONNECTOR.md` dalam memori/arahan Cowork, dan beri Cowork akses ke folder Everkeep.
+### Claude Desktop: Cowork tab
+Cowork has its own memory folder with a separate `CLAUDE.md`, not `~/.claude/CLAUDE.md`. Suggested (untested): paste the `CONNECTOR.md` block into Cowork's memory/instructions, and give Cowork access to the Everkeep folder.
 
-### Claude Desktop / claude.ai: tab Chat
-Chat tidak membaca fail dalam komputer secara automatik. Everkeep hanya boleh berfungsi kalau:
-1. Connector sistem fail (MCP) dipasang dan diberi akses ke folder Everkeep, **dan**
-2. Blok `CONNECTOR.md` ditampal dalam arahan Project atau tetapan peribadi.
+### Claude Desktop / claude.ai: Chat tab
+Chat does not read files on your computer by itself. Everkeep can only work if:
+1. A file system connector (MCP) is installed and given access to the Everkeep folder, **and**
+2. The `CONNECTOR.md` block is pasted into the Project instructions or personal preferences.
 
-Kalau tidak, gunakan tab Code atau Claude Code untuk kerja yang memerlukan memori Everkeep.
+Otherwise, use the Code tab or Claude Code for work that needs Everkeep memory.
 
-## Nota
+## Notes
 
-- **Agent dengan kunci API sendiri** (Cline, Roo, Kilo, Aider, OpenCode dan lain-lain): Everkeep tidak bergantung pada model. Selagi model boleh baca dan tulis fail melalui agent, memori berfungsi.
-- **Model kecil atau murah** mungkin terlepas langkah dalam protokol. Kalau itu berlaku, sebut terus: "{{AI_NAME}}, baca EVERKEEP.md".
-- Penanda `<!-- everkeep:start -->` / `<!-- everkeep:end -->` membolehkan setup dan skrip kemas kini mencari blok ini tanpa menyentuh kandungan lain.
+- **Agents with your own API key** (Cline, Roo, Kilo, Aider, OpenCode and others): Everkeep does not depend on the model. As long as the model can read and write files through the agent, the memory works.
+- **Small or cheap models** may skip steps in the protocol. If that happens, say it directly: "{{AI_NAME}}, read EVERKEEP.md".
+- The `<!-- everkeep:start -->` / `<!-- everkeep:end -->` markers let setup and update scripts find this block without touching anything else.
